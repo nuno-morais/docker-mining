@@ -9,6 +9,8 @@ CPU_PRIORITY="0"
 if [ "$PRIORITY" -ge 0 ] && [ "$PRIORITY" -le 5 ]; then
     CPU_PRIORITY=$PRIORITY
 fi
+echo "exec xmrig --url=${POOL_URL} --algo=${POOL_ALGO} --user=${POOL_USER} ${THREAD_OPTS} \
+    --cpu-priority=${CPU_PRIORITY}"
 
-exec xmrig --url=${POOL_URL} --algo=${POOL_ALGO} -user=${POOL_USER} ${THREAD_OPTS} \
+exec xmrig --url=${POOL_URL} --algo=${POOL_ALGO} --user=${POOL_USER} ${THREAD_OPTS} \
     --cpu-priority=${CPU_PRIORITY}
